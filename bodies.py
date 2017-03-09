@@ -20,8 +20,7 @@ class Body(object):
         self.mu = mu
         self.mean_radius = mean_radius
         self.equatorial_radius = equatorial_radius
-        self.x_pos = x_pos
-        self.y_pos = y_pos
+        self.position = [x_pos, y_pos]
         super(Body, self).__init__()
         created_bodies.append(self)
 
