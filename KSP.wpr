@@ -1,10 +1,14 @@
 #!wing
-#!version=5.0
+#!version=6.0
 ##################################################################
 # Wing IDE project file                                          #
 ##################################################################
 [project attributes]
 proj.file-list = [loc('bodies.py'),
+                  loc('calculations.py'),
                   loc('constants.py'),
-                  loc('functional_tests.py')]
+                  loc('craft.py'),
+                  loc('functional_tests.py'),
+                  loc('main.py'),
+                  loc('orbit.py')]
 proj.file-type = 'shared'

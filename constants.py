@@ -5,14 +5,22 @@ from datetime import timedelta as _timedelta
 
 from scipy.constants import kilo as _kilo
 
-# IAU 2009 System of Astronomical Constants
-# Updated as of 2014
+g = 6.67428e-11  
 
-constant_of_gravitation = 6.67428e-11  # m^3 kg^-1 s^-2
+earth_mass                  = 5.97237e24
+earth_radius_equatorial     = 6378.1
+earth_mu                    = earth_mass  * g
+earth_mean_radius           = 6371.0
+earth_sidereal_day          = 138984
+earth_eccentricity          = 0.0167086
+earth_aphelion              = 152100000   * _kilo
+earth_perihelion            = 147095000   * _kilo
+earth_orbit_speed           = 108 * _kilo * 50
+earth_distance_from_sun     = 149000 * _kilo
 
-mun_mass = 9.7600236e20
-mun_radius_equatorial     = 200       * _kilo
-mun_mu     = mun_mass     * constant_of_gravitation
-mun_radius_polar= mun_radius_mean = mun_radius_equatorial
+sun_mass                  = 1.98855e30
+sun_radius_equatorial     = 695700
+sun_mu                    = sun_mass  * g
+sun_mean_radius           = sun_radius_equatorial
 
-mun_sidereal_day = 138984
+km_per_pixel              = 500000

@@ -1,19 +1,9 @@
 # encoding: utf-8
 
 import constants as oc
+from scipy.constants import kilo as _kilo
 
-__all__ = [
-    'mercury',
-    'mun',
-    'venus',
-    'earth',
-    'mars',
-    'jupiter',
-    'saturn',
-    'uranus',
-    'neptune',
-]
-
+created_bodies = []
 
 class Body(object):
     r"""Reference body for a Keplerian orbit.
@@ -23,28 +13,39 @@ class Body(object):
     :param float mean_radius: Mean radius (:math:`r_\text{mean}`) [m]
     :param float equatorial_radius: Equatorial radius (:math:`r_\text{equat}`) [m]
     :param float polar_radius: Polar radius (:math:`r_\text{polar}`) [m]
-    :param apoapsis_names: Specific apoapsis name(s) for body. E.g. `apogee` for earth.
-    :type apoapsis_names: String, or list of strings.
-    :param periapsis_names: Specific periapsis name(s) for body.
-    :type apoapsis_names: String, or list of strings.
-    :param plot_color: Color understood by Matplotlib, e.g. '#FF0000' or 'r'
     """
-    def __init__(self, mass, mu, mean_radius, equatorial_radius, polar_radius):
+    def __init__(self, name, mass, mu, mean_radius, equatorial_radius, x_pos, y_pos):
+        self.name = name
         self.mass = mass
         self.mu = mu
         self.mean_radius = mean_radius
         self.equatorial_radius = equatorial_radius
-        self.polar_radius = polar_radius
+        self.x_pos = x_pos
+        self.y_pos = y_pos
         super(Body, self).__init__()
+        created_bodies.append(self)
 
-mun = Body(
-    mass = oc.mun_mass,
-    mu = oc.mun_mu,
-    mean_radius = oc.mun_radius_mean,
-    equatorial_radius = oc.mun_radius_equatorial,
-    polar_radius = oc.mun_radius_polar
+earth = Body(
+     name = "earth",
+     mass = oc.earth_mass,
+     mu = oc.earth_mu,
+     mean_radius = oc.earth_mean_radius,
+     equatorial_radius = oc.earth_radius_equatorial,
+     x_pos = 149000 * _kilo,
+     y_pos = 0     
+)
+
+sun = Body(
+    name = "sun",
+    mass = oc.sun_mass,
+    mu = oc.sun_mu,
+    mean_radius = oc.sun_mean_radius,
+    equatorial_radius = oc.sun_radius_equatorial,
+    x_pos = 0,
+    y_pos = 0
 )
 
 
 
-print(mun)
+pass
+#print(type(mun))
